@@ -20,7 +20,6 @@ export default function Countries() {
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('');
 
-  // Fetch all countries or by region
   useEffect(() => {
     setLoading(true);
     const url = region
@@ -40,7 +39,6 @@ export default function Countries() {
       });
   }, [region]);
 
-  // Filter by search term (within the selected region)
   useEffect(() => {
     const term = search.toLowerCase();
     const filtered = countries.filter((country) =>
@@ -66,17 +64,14 @@ export default function Countries() {
           </Link>
         </div>
 
-        {/* ✅ Region Selector */}
         <RegionSelector value={region} onChange={(e) => setRegion(e.target.value)} />
 
-        {/* ✅ Search Input */}
         <SearchInput
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search countries..."
         />
 
-        {/* ✅ Countries Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredCountries.map((country) => (
             <Link
