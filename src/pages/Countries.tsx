@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import SearchInput from "../components/SearchInput";
 import RegionSelector from "../components/RegionSelector";
+import BtnSidebar from "../Sidebar/BtnSidebar";
 
 interface Country {
   name: { common: string };
@@ -19,6 +20,7 @@ export default function Countries() {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
+
   const [favorites, setFavorites] = useState<string[]>(() => {
     const saved = localStorage.getItem("favorites");
     return saved ? JSON.parse(saved) : [];
@@ -94,10 +96,10 @@ export default function Countries() {
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search countries..."
         />
+        <BtnSidebar />
         <div className="flex justify-end">
           <button
             onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-            
             className={`cursor-pointer px-4 py-2 mb-3 rounded-lg font-medium transition ${
               showFavoritesOnly
                 ? "bg-yellow-400 text-white"

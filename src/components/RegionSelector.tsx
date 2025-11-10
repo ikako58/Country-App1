@@ -13,13 +13,13 @@ export default function RegionSelector({
 
   return (
     <div className="w-full max-w-xs mx-auto mb-8">
-      <label className="block text-gray-700 mb-2 font-medium">
+      <label className="block text-gray-700 mb-2 font-medium ">
         Select a Region
       </label>
       <select
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-700 transition"
+        className=" cursor-pointer w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-700 transition"
       >
         <option value="">All Regions</option>
         {regions.map((region) => (
