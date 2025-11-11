@@ -120,7 +120,11 @@ export default function Countries() {
               <Link
                 key={country.name.common}
                 to={`/country/${encodeURIComponent(country.name.common)}`}
-                className="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center relative"
+                draggable
+                onDragStart={(e) =>
+                  e.dataTransfer.setData("country", country.name.common)
+                }
+                className="bg-white rounded-xl shadow hover:shadow-lg transition p-5 text-center relative cursor-grab active:cursor-grabbing"
               >
                 <div className="absolute top-2 right-2">
                   <button
